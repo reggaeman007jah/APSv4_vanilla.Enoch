@@ -18,7 +18,7 @@ _sentOrigin = _this select 1; // starting point for any new mission
 RGG_missionOrigin = _sentOrigin;
 // RGG_patrol_obj = [_sentPos, 600, 800, 3, 0, 0, 0, RGG_patrolPositionBlacklist] call BIS_fnc_findSafePos; // generate patrol obj between 600m and 800m away, and always over land 
 // new test to make each point closer, now 350 - 500 away 
-RGG_patrol_obj = [_sentPos, 350, 500, 3, 0, 0, 0, RGG_patrolPositionBlacklist] call BIS_fnc_findSafePos; // generate patrol obj between 600m and 800m away, and always over land 
+RGG_patrol_obj = [_sentPos, 500, 550, 3, 0, 0, 0, RGG_patrolPositionBlacklist] call BIS_fnc_findSafePos; // generate patrol obj between 600m and 800m away, and always over land 
 // RGG_patrol_obj = [_sentPos, 600, 800, 3, 0, 20, 0] call BIS_fnc_findSafePos; // generate patrol obj between 600m and 800m away, and always over land 
 // _newPos = [_markerPos, 600, 1800, 3, 0, 20, 0, blackList] call BIS_fnc_findSafePos;
 // delete any existing opfor RF points 
