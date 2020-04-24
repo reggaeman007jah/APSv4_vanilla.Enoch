@@ -21,14 +21,15 @@ sleep 10;
 _spawnPos = _this select 0;
 _area = 120;
 _timer = 0.3;
+_indiGroup = createGroup independent;
 
 // systemChat "blu units being created - check perf";
 
 // rifleman
 for "_i" from 1 to 6 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
-	_unit = bluGroup createUnit ["I_soldier_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_soldier_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -41,10 +42,10 @@ for "_i" from 1 to 6 do {
 
 // HMG
 for "_i" from 1 to 4 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// _unit = bluGroup createUnit ["UK3CB_BAF_MGGPMG_MTP", _pos, [], 0.1, "none"]; 
-	_unit = bluGroup createUnit ["I_support_MG_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_support_MG_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -74,10 +75,10 @@ for "_i" from 1 to 4 do {
 
 // grenadier
 for "_i" from 1 to 4 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// find the old classname for 3cb 
-	_unit = bluGroup createUnit ["I_Soldier_GL_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_Soldier_GL_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -91,10 +92,10 @@ for "_i" from 1 to 4 do {
 
 // marksman
 for "_i" from 1 to 2 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// _unit = bluGroup createUnit ["UK3CB_BAF_Marksman_MTP", _pos, [], 0.1, "none"]; 
-	_unit = bluGroup createUnit ["I_Soldier_M_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_Soldier_M_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -108,10 +109,10 @@ for "_i" from 1 to 2 do {
 
 // medic
 for "_i" from 1 to 2 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// find 3cb medic class
-	_unit = bluGroup createUnit ["I_medic_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_medic_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -173,10 +174,10 @@ for "_i" from 1 to 2 do {
 
 // officer
 for "_i" from 1 to 1 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// _unit = bluGroup createUnit ["UK3CB_BAF_Officer_MTP", _pos, [], 0.1, "none"]; 
-	_unit = bluGroup createUnit ["I_officer_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_officer_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
@@ -190,10 +191,10 @@ for "_i" from 1 to 1 do {
 
 // TL
 for "_i" from 1 to 1 do {
-	bluGroup = createGroup west;
+	// bluGroup = createGroup west;
 	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
 	// _unit = bluGroup createUnit ["UK3CB_BAF_RO_MTP", _pos, [], 0.1, "none"]; 
-	_unit = bluGroup createUnit ["I_Soldier_TL_F", _pos, [], 0.1, "none"]; 
+	_unit = _indiGroup createUnit ["I_Soldier_TL_F", _pos, [], 0.1, "none"]; 
 	sleep _timer;
 	_randomDir = selectRandom [270, 310, 00, 50, 90];
 	_randomDist = selectRandom [20, 22, 24, 26, 28, 30];
