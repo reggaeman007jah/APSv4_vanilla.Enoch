@@ -136,10 +136,12 @@ switch (true) do {
 		_objective1 setMarkerColor "ColorRed";
 		_objective1 setMarkerSize [50, 50];
 
+		_grp = createGroup east; // moving this 'out' of the loop, so it is only triggered once - will this resolve the noSpawn issue?
+
 		for "_i" from 1 to _rndOp1 do 
 		{						
 			sleep 3;
-			_grp = createGroup east;
+			// _grp = createGroup east;
 			_randomDir = selectRandom [0, 45, 90, 135, 180, 225, 270, 315]; 
 			_moveDist = selectRandom [5, 10, 15, 20, 25, 30]; 
 			_posRandom = selectRandom [_pos1, _pos2, _pos3];
