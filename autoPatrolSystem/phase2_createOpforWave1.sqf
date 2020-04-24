@@ -9,10 +9,10 @@ MISSIONTASK = "Move into the patrol point and destroy any opfor defenders";
 // systemChat "debug - op first wave units being created - check perf";
 
 _rndOp1 = selectRandom [6, 10, 14];
+_grp = createGroup east;
 
 for "_i" from 1 to _rndOp1 do {
 	_rndtype = selectRandom ["o_g_soldier_ar_f", "o_g_soldier_gl_f", "o_g_sharpshooter_f", "o_soldieru_lat_f"];
-	_grp = createGroup east;
 	_pos = [RGG_patrol_obj, 0, 30] call BIS_fnc_findSafePos; // was 30, now 80, now 150 hopefully for better dispertion // now back to 30
 	_unit = _grp createUnit [_rndtype, _pos, [], 1, "none"]; 
 	_unit setBehaviour "COMBAT";

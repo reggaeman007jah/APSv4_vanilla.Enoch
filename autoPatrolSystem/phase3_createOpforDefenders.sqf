@@ -15,10 +15,10 @@ When defenders are wiped out, next phase is called
 
 
 _rndOp1 = selectRandom [4, 6, 8, 10, 12];
+_grp = createGroup east;
 
 for "_i" from 1 to _rndOp1 do {
 	_rndtype = selectRandom ["o_g_soldier_ar_f", "o_g_soldier_gl_f", "o_g_sharpshooter_f", "o_soldieru_lat_f"];
-	_grp = createGroup east;
 	_pos = [RGG_patrol_obj, 0, 200] call BIS_fnc_findSafePos;
 	_unit = _grp createUnit [_rndtype, _pos, [], 30, "none"]; 
 	

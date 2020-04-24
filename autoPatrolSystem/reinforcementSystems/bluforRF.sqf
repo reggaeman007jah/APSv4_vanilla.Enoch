@@ -9,6 +9,10 @@ It adds a RF score, so we can track how many RFs have been called in during the 
 
 	// hint str _blufor;
 
+/*
+afaik this is not being used!
+*/
+
 sleep 20;
 
 while {true} do {
