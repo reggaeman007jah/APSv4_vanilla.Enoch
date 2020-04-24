@@ -9,9 +9,9 @@ execVM "autoPatrolSystem\autoPatrolSystem.sqf";
 sleep 0.5;
 
 // initialise Heli Systems
-execVM "autoPatrolSystem\heliSystems\heliSystemsInit.sqf";
-// systemchat "debug --- Heli Systems ACTIVATED";
-sleep 0.5;
+// execVM "autoPatrolSystem\heliSystems\heliSystemsInit.sqf";
+// // systemchat "debug --- Heli Systems ACTIVATED";
+// sleep 0.5;
 
 // initialise debug UAV
 // execVM "autoPatrolSystem\UAV\uav.sqf";
@@ -20,6 +20,7 @@ sleep 0.5;
 
 // initialise debug counter system - comment this out to turn off 
 execVM "autoPatrolSystem\debuggingSystems\debugCounter.sqf";
+
 
 // initialise flybys - add bombs later 
 execVM "autoPatrolSystem\ambientSystems\randomFlybys.sqf";
