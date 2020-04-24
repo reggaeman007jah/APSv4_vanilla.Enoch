@@ -141,12 +141,13 @@ switch (true) do {
 			sleep 3;
 			_grp = createGroup east;
 			_randomDir = selectRandom [0, 45, 90, 135, 180, 225, 270, 315]; 
+			_moveDist = selectRandom [5, 10, 15, 20, 25, 30]; 
 			_posRandom = selectRandom [_pos1, _pos2, _pos3];
 			_pos = _posRandom getPos [50, _randomDir];
 			_rndtype = selectRandom ["o_g_soldier_ar_f", "o_g_soldier_gl_f", "o_g_sharpshooter_f", "o_soldieru_lat_f"];			
 			_unit = _grp createUnit [_rndtype, _pos, [], 1, "none"]; 
 			sleep 0.3;
-			_moveTo = RGG_patrol_obj getPos [5, _randomDir]; 
+			_moveTo = RGG_patrol_obj getPos [_moveDist, _randomDir]; // _moveDist is an attempt to better space out opfor attackers after they have taken back a point 
 			_unit doMove _moveTo;
 			spawnedOpforUnit = spawnedOpforUnit + 1;
 
