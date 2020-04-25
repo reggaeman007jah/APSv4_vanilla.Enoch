@@ -47,6 +47,17 @@ while {true} do {
 
 	// _indiKilled = spawnedIndiUnit - _totalIndi;
 
+	/*
+	RGG_totalOpforGroups = [];
+	RGG_totalIndiforGroups = [];
+	*/
+
+	// count total groups spawned in since mission start 
+	testOpforPBU = RGG_totalOpforGroups pushBackUnique _opforGroups;
+	testIndiforPBU = RGG_totalIndiforGroups pushBackUnique _indiforGroups;
+	countTotalOpforGroups = count RGG_totalOpforGroups;
+	countTotalIndiforGroups = count RGG_totalIndiforGroups;
+
 	// _averagePatrolTime = _roundedMission3 / patrolPointsTaken;
 
 	// systemChat ".....................................................................................................";
@@ -58,6 +69,7 @@ while {true} do {
 	systemChat "................. REDZONE UNITS";
 	systemChat format ["................. TOTAL: %1", _totalRedzone]; 
 	systemChat format ["................. WEST: %1 / EAST: %2 / INDI: %3", _blueforCount, _opforCount, _indiCount]; 
+	systemChat "................. ";
 	systemChat "................. GLOBAL UNITS";
 	systemChat format ["................. TOTAL: %1", _totalUnits]; 
 	systemChat format ["................. WEST: %1 / EAST: %2 / INDI: %3", _totalWest, _totalEast, _totalIndi]; 
@@ -74,11 +86,12 @@ while {true} do {
 	// systemChat format ["................. OPFOR KILLED: %1", _TEST1]; 
 	// systemChat format ["................. INDIFOR KILLED: %1", _TEST1]; 	
 	systemChat format ["................. TOTAL OPFOR SPAWNED: %1", spawnedOpforUnit]; 	
-	systemChat format ["................. TOTAL OPFOR GROUPS SPAWNED: %1", _opforGroupCount]; 	
+	systemChat format ["................. CURRENT OPFOR GROUPS: %1", _opforGroupCount]; 	
+	// systemChat format ["................. TOTAL OPFOR GROUPS CREATED: %1", countTotalOpforGroups]; 	
+	systemChat "................. ";
 	systemChat format ["................. TOTAL INDIFOR SPAWNED: %1", spawnedIndiUnit]; 	
-	systemChat format ["................. TOTAL INDIFOR GROUPS SPAWNED: %1", _indiforGroupCount]; 	
-
-
+	systemChat format ["................. CURRENT INDIFOR GROUPS: %1", _indiforGroupCount]; 	
+	// systemChat format ["................. TOTAL INDIFOR GROUPS CREATED: %1", countTotalIndiforGroups]; 	
 	// systemChat format ["................. PATROLS LOST: %1", LOSTPATROLS]; 
 	systemChat ".............................................................................................................................";
 
@@ -94,6 +107,4 @@ while {true} do {
 		[RGG_missionOrigin] execVM "autoPatrolSystem\spawnerSystems\createFriendlyUnits.sqf";
 		sleep 10;
 	};
-
 };
-

@@ -5,7 +5,7 @@ An issue occurs when - for whatever reason - enemy do not engage. This could be 
 Without an insurance policy, this lack of engagement could draw the mission to a standstill. So, a secondary system is needed to ensure that things always progress at 
 a certain time regardless of engagement.
 */
-// hint "are you seeing this";
+
 systemChat "debug --- phase 5 - defence"; 	
 "MP debug --- phase 5 - defence" remoteExec ["systemChat", 0, true];	
 
@@ -18,6 +18,7 @@ systemChat "debug --- phase 5 - defence";
 _numberOfAttackers = _this select 0;
 _numberOfAttackPoints = _this select 1;
 systemChat format ["Intel suggests %1 enemy units are advancing from %2 key position(s) in your immediate area", _numberOfAttackers, _numberOfAttackPoints];
+systemChat "Check the map for specific locational intel";
 
 // previously this managed blu RF, but now it can be used to manage future things (has no direct usage now)
 _RGG_reinforcementTrigger = 10; 
@@ -29,9 +30,6 @@ _RGG_reinforcementTrigger = 10;
 monitorDefence = true; 
 
 while {monitorDefence} do {
-
-	// systemChat "___monitorDefence phase 5 cycle___";
-
 	sleep 10;
 
 	_units1 = allUnits inAreaArray "Objective 1"; // just trying this change out... april 2020
@@ -152,6 +150,12 @@ while {monitorDefence} do {
 		_ammoSup = createVehicle ["Box_NATO_Support_F", _fobPos];
 		_ammoSup = createVehicle ["Box_FIA_Support_F", _fobPos];
 		_ammoSup = createVehicle ["Box_FIA_Wps_F", _fobPos];
+		_ammoSup = createVehicle ["Box_NATO_AmmoVeh_F", _fobPos];
+		_ammoSup = createVehicle ["B_Slingload_01_Repair_F", _fobPos];
+		
+
+		
+
 
 		_damageTrigger = 0.4; // change this value to set what constitutes an evac-worthy injury level
 		injuredIndi = [];
@@ -177,6 +181,6 @@ while {monitorDefence} do {
 		_tempBase setMarkerAlpha 0.8;
 		_tempBase setMarkerColor "colorBlue";
 	};
-	// hint "bf defence - waiting 60";
-	sleep 60;
+
+	sleep 90;
 };

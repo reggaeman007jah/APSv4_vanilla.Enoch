@@ -23,6 +23,8 @@ RGG_patrolPositionBlacklist = ["blacklist4","blacklist3","blacklist2","blacklist
 // [[500,3300],[12500,3000]],[[500,500],[12500,450]],[[500,12500],[12500,12450]],[[500,12500],[500,550]],[[12500,12500],[12550,500]],
 // [[500,3300],[12500,3000]] // test lower third 
 
+RGG_totalOpforGroups = [];
+RGG_totalIndiforGroups = [];
 
 // opfor RF gen system
 ONEPOINT = false;
