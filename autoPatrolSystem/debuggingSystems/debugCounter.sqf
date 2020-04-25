@@ -33,6 +33,18 @@ while {true} do {
 	_totalRedzone = _opforCount + _blueforCount + _indiCount;
 	_totalUnits = count allUnits;
 
+	// count blacklist items 
+	_blackListItems = count RGG_patrolPositionBlacklist; // EVENTUALLY TRIM THIS TO BE ONLY 5 OR 6 
+
+	// list groups 
+	_opforGroups = allGroups select {side _x isEqualTo east};
+	_indiforGroups = allGroups select {side _x isEqualTo independent};
+	// _bluforGroupCount = allGroups select {side _x isEqualTo west};
+
+	// count groups 
+	_opforGroupCount = count _opforGroups;
+	_indiforGroupCount = count _indiforGroups;
+
 	// _indiKilled = spawnedIndiUnit - _totalIndi;
 
 	// _averagePatrolTime = _roundedMission3 / patrolPointsTaken;
@@ -56,12 +68,15 @@ while {true} do {
 	systemChat format ["................. MISSION DURATION (MINS): %1", _roundedMission3]; 
 	systemChat format ["................. POINTS TAKEN: %1", patrolPointsTaken]; 
 	systemChat format ["................. REINFORCEMENT PATROLS CALLED: %1", reinforcementsCalled]; 
+	systemChat format ["................. BLACKLIST ITEMS: %1", _blackListItems]; 
 	// systemChat format ["................. OVERALL PATROL DISTANCE: %1", _TEST1]; 
 	// systemChat format ["................. AVERAGE TIME TO TAKE EACH PATROL POINT: %1", _TEST1]; 
 	// systemChat format ["................. OPFOR KILLED: %1", _TEST1]; 
 	// systemChat format ["................. INDIFOR KILLED: %1", _TEST1]; 	
 	systemChat format ["................. TOTAL OPFOR SPAWNED: %1", spawnedOpforUnit]; 	
+	systemChat format ["................. TOTAL OPFOR GROUPS SPAWNED: %1", _opforGroupCount]; 	
 	systemChat format ["................. TOTAL INDIFOR SPAWNED: %1", spawnedIndiUnit]; 	
+	systemChat format ["................. TOTAL INDIFOR GROUPS SPAWNED: %1", _indiforGroupCount]; 	
 
 
 	// systemChat format ["................. PATROLS LOST: %1", LOSTPATROLS]; 
