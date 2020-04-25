@@ -146,12 +146,15 @@ while {monitorDefence} do {
 		// base reward 
 		_baseBuilding1 = createVehicle ["Land_IRMaskingCover_02_F", getMarkerPos "missionOrigin", [], 30, "none"]; 
 		_fobPos = getPos _baseBuilding1;
+		_ammoPos = _fobPos getPos [10,180];
+		_repairPos = _fobPos getPos [10,90];
+		_fuelPos = _fobPos getPos [10,270];
 		_ammoSup = createVehicle ["B_supplyCrate_F", _fobPos];
 		_ammoSup = createVehicle ["Box_NATO_Support_F", _fobPos];
 		_ammoSup = createVehicle ["Box_FIA_Support_F", _fobPos];
 		_ammoSup = createVehicle ["Box_FIA_Wps_F", _fobPos];
-		_ammoSup = createVehicle ["Box_NATO_AmmoVeh_F", _fobPos];
-		_ammoSup = createVehicle ["B_Slingload_01_Repair_F", _fobPos];
+		_ammoSup = createVehicle ["Box_NATO_AmmoVeh_F", _ammoPos];
+		_ammoSup = createVehicle ["B_Slingload_01_Repair_F", _repairPos];
 		
 
 		
