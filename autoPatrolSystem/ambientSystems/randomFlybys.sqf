@@ -1,5 +1,17 @@
 /*
 ambient spawner for effect only 
+
+Improvement ideas 
+
+decide from which / to direction 
+decide how many in flight 
+decide on formation (line or column or echelon or vee)
+decide on spawn gap 
+decide on alt#
+decide on speed 
+decide if mixed or one class (if mixed, what are the other downstream requirements (ie no AH6 + jets))
+store pos at local so it does not crap out if the obj changes 
+
 */
 
 sleep 300; // initial delay
