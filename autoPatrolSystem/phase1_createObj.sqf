@@ -138,7 +138,7 @@ _relDir = floor _relDirX;
 _distX = RGG_missionOrigin distance RGG_patrol_obj;
 _dist = floor _distX;
 _dist2 = _dist / 2;
-_testPos = RGG_missionOrigin getPos [_dist2, _relDir];
+_testPos = RGG_missionOrigin getPos [_dist2, _relDirX];// testing unfloored dir 
 
 sleep 5;
 _lineTest = createMarker [_stampToString, _testPos];

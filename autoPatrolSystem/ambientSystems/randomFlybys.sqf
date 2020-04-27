@@ -11,12 +11,14 @@ decide on alt#
 decide on speed 
 decide if mixed or one class (if mixed, what are the other downstream requirements (ie no AH6 + jets))
 store pos at local so it does not crap out if the obj changes 
+always have ambient flybys go relative to the next patrol obj
 
 */
 
 sleep 300; // initial delay
 while {true} do {
 	_sleep = selectRandom [60, 90, 120, 180, 240, 300]; // determines how long between each batch of ambients 
+	sleep _sleep; // random sleep between spawn batches // test if moving this line solves the pos problem 
 	_number = selectRandom [1,2,3]; // determines how many ambients per spawn event 
 	_type = selectRandom ["B_Plane_CAS_01_dynamicLoadout_F", "B_Heli_Transport_01_F", "B_Heli_Transport_03_F", "B_Heli_Light_01_dynamicLoadout_F"]; // 4 types, each batch is always the same type - you wont get a jet and an MH6 together 
 	_startPos = RGG_patrol_obj getPos [5000, 90]; // starts east of the patrol point 
@@ -25,7 +27,7 @@ while {true} do {
 		[_startPos, _endPos, 100, "FULL", _type, west] call BIS_fnc_ambientFlyby;
 		sleep 15; // spacer sleep between each iteration to prevent spawn overlaps 	
 	};
-	sleep _sleep; // random sleep between spawn batches 
+	
 };
 
 

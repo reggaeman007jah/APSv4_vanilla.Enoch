@@ -128,11 +128,10 @@ while {monitorDefence} do {
 			_x doMove _endPoint1;
 		} forEach _moveOpfor;
 
-		sleep 20;
+		// sleep 20;
 
 		_moveIndi = [];
 		{if ((side _x) != WEST) then {_moveIndi pushBack _x}} forEach allUnits;
-
 		// _units = allUnits inAreaArray "missionOrigin";
 		{
 			_randomDir = selectRandom [270, 310, 00, 50, 90];
@@ -143,46 +142,92 @@ while {monitorDefence} do {
 			_x doMove _endPoint1;
 		} forEach _moveIndi;
 
-		// base reward 
-		_baseBuilding1 = createVehicle ["Land_IRMaskingCover_02_F", getMarkerPos "missionOrigin", [], 30, "none"]; 
+
+		// BASE REWARD 
+		// initial position  
+		_anchorPos = getMarkerPos "missionOrigin";
+		systemChat format ["anchorPos: %1", _anchorPos];
+		// position isFlatEmpty [minDistance, mode, maxGradient, maxGradientRadius, overLandOrWater, shoreLine, ignoreObject]
+		
+
+		// _buildLocation = _anchorPos isFlatEmpty [3, -1, -1, 1, 0];
+		// center findEmptyPosition [radius, maxDistance, vehicleType]
+		_buildLocation = _anchorPos findEmptyPosition [10,100,"B_Heli_Light_01_dynamicLoadout_F"];
+		systemChat format ["buildLocation: %1", _buildLocation];
+
+		// _baseBuilding1 = createVehicle ["Land_IRMaskingCover_02_F", getMarkerPos "missionOrigin", [], 30, "none"]; 
+		_baseBuilding1 = createVehicle ["Land_IRMaskingCover_02_F", _buildLocation, [], 30, "none"]; 
+		sleep 1;
+
 		_fobPos = getPos _baseBuilding1;
-		_ammoPos = _fobPos getPos [10,180];
-		_repairPos = _fobPos getPos [10,90];
-		_fuelPos = _fobPos getPos [10,270];
-		_ammoSup = createVehicle ["B_supplyCrate_F", _fobPos];
-		_ammoSup = createVehicle ["Box_NATO_Support_F", _fobPos];
-		_ammoSup = createVehicle ["Box_FIA_Support_F", _fobPos];
-		_ammoSup = createVehicle ["Box_FIA_Wps_F", _fobPos];
-		_ammoSup = createVehicle ["Box_NATO_AmmoVeh_F", _ammoPos];
-		_ammoSup = createVehicle ["B_Slingload_01_Repair_F", _repairPos];
+		// _ammoPos = _fobPos getPos [10,180];
+		// _repairPos = _fobPos getPos [10,90];
+		// _fuelPos = _fobPos getPos [10,270];
+		_ammoSup = createVehicle ["Land_PortableCabinet_01_medical_F", _fobPos];//med kit for full heal 
+		sleep 2;
+		_ammoSup = createVehicle ["B_supplyCrate_F", _fobPos];//ammo 
+		sleep 2;
+		_ammoSup = createVehicle ["Box_NATO_Support_F", _fobPos];//ammmo 
+		sleep 2;
+		_ammoSup = createVehicle ["Box_FIA_Support_F", _fobPos];//ammo 
+		sleep 2;
+		_ammoSup = createVehicle ["Box_FIA_Wps_F", _fobPos];//ammo 
+		sleep 2;
+
+		// repair area 
+		_repairPos = _fobPos findEmptyPosition [10,100,"B_Heli_Light_01_dynamicLoadout_F"];
+		_ammoSup = createVehicle ["B_Slingload_01_Repair_F", _repairPos];//vehicle repair 
+		// _repairMan = createVehicle ["C_Man_UtilityWorker_01_F", _repairPos];//mechanic
+		// why does the unit spawn with an empty gun?
+		sleep 2;
+
+		// vehicle ammo - next to repair 
+		_ammoPos = _repairPos findEmptyPosition [10,100,"B_Heli_Light_01_dynamicLoadout_F"];
+		_ammoSup = createVehicle ["Box_NATO_AmmoVeh_F", _ammoPos];//vehicle ammo 
+		sleep 2;
+
+		// maybe only one - at base ? is a bit big 
+		// _fuelPos = _fobPos findEmptyPosition [10,100,"B_Heli_Light_01_dynamicLoadout_F"];
+		// _ammoSup = createVehicle ["StorageBladder_01_fuel_sand_F", _fuelPos];//vehicle fuel 
+		// sleep 2;
+
+		// _medic = createVehicle ["C_IDAP_Man_Paramedic_01_F", _fobPos];//placeholder for auto medic 
+		// sleep 2;
+
+		// _medicSup = getPos _fobPos;
+		// _medicCab = createVehicle ["Land_PortableCabinet_01_medical_F", _medicSup];//med kit for full heal 
 		
+		// INJURY MANAGEMENT
+		// manage injured units and remove from fight 
+		// _damageTrigger = 0.4; // change this value to set what constitutes an evac-worthy injury level
+		// injuredIndi = [];
+		// {if ((side _x) == INDEPENDENT) then {injuredIndi pushBack _x}} forEach allUnits;
 
-		
-
-
-		_damageTrigger = 0.4; // change this value to set what constitutes an evac-worthy injury level
-		injuredIndi = [];
-		{if ((side _x) == INDEPENDENT) then {injuredIndi pushBack _x}} forEach allUnits;
-
-		// _readyInjured = allUnits inAreaArray "medivac";
-		{
-			_inj = getDammage _x;
-			if ((_inj) >= _damageTrigger) then {
-				_x doMove _fobPos;
-				systemChat "injured ready for pickup";
-			};
-		} forEach injuredIndi;
+		// // _readyInjured = allUnits inAreaArray "medivac";
+		// {
+		// 	_inj = getDammage _x;
+		// 	if ((_inj) >= _damageTrigger) then {
+		// 		_x doMove _fobPos;
+		// 		_civGroup = createGroup civilian;
+		// 		_x joinSilent _civGroup;
+		// 		systemChat "injured ready for pickup";
+		// 	};
+		// } forEach injuredIndi;
+		// systemChat format ["injured civvies: %1", injuredIndi];
 
 		_float = diag_tickTime;
 		_float2 = random 10000;
 		_uniqueStamp = [_float, _float2];
 		_stampToString = str _uniqueStamp;
 
-		_tempBase = createMarker [_stampToString, _fobPos];
+		_tempBase = createMarker [_stampToString, _anchorPos];
 		_tempBase setMarkerShape "ELLIPSE";
-		_tempBase setMarkerSize [50, 50];
+		_tempBase setMarkerSize [30, 30];
 		_tempBase setMarkerAlpha 0.8;
 		_tempBase setMarkerColor "colorBlue";
+
+		// we need a big centre here too 
+
 	};
 
 	sleep 90;
