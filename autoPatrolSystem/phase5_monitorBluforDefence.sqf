@@ -85,6 +85,7 @@ while {monitorDefence} do {
 
 	if (_opforCount <= 5) then {// loop ends when opfor is reduced to this number
 		hint "WELL DONE !!! the patrol has held the position successfully and is now moving to the next point";
+		"WELL DONE !!! the patrol has held the position successfully and is now moving to the next point" remoteExec ["hint", 0, true];	
 		// trigger delayed cleanup 
 		_cleanupPos = RGG_patrol_obj; // this ensures that a snapshot of the location is sent to the cleanup script - a global var will always be the most current version and so will not suit this purpose 
 		[_cleanupPos] execVM "autoPatrolSystem\cleanupSystems\garbageControl.sqf";

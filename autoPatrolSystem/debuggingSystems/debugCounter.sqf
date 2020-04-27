@@ -101,6 +101,8 @@ while {true} do {
 		// execVM "autoPatrolSystem\reinforcementSystems\bluforRF.sqf";
 		sleep 2;
 		hint "INDI REINFORCEMENTS ARE INBOUND";
+		"INDI REINFORCEMENTS ARE INBOUND" remoteExec ["hint", 0, true];	
+
 		// systemchat "debug --- friendly units created";
 		// "MP debug --- friendly units created" remoteExec ["systemChat", 0, true];
 		reinforcementsCalled = reinforcementsCalled + 1;
