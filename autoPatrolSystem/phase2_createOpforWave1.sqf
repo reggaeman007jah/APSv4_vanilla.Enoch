@@ -5,6 +5,7 @@ Consider sending them back to patrol dest if this happens (surprise attack)
 */
 
 MISSIONTASK = "Move into the patrol point and destroy any opfor defenders";
+publicVariable "MISSIONTASK";
 
 // systemChat "debug - op first wave units being created - check perf";
 

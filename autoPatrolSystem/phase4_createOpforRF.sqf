@@ -7,6 +7,7 @@ systemChat format ["patrol defence started at %1 seconds into mission", _defendS
 */
 
 MISSIONTASK = "Secure the patrol point and prepare for opfor retaliation";
+publicVariable "MISSIONTASK";
 
 _smoke = createVehicle ["G_40mm_smokeYELLOW", RGG_patrol_obj, [], 0, "none"]; // drop this from up high 
 

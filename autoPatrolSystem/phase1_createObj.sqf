@@ -11,6 +11,7 @@ sleep 5;
 
 hint "MISSION STARTING";
 MISSIONTASK = "Setting up new patrol objectives";
+publicVariable "MISSIONTASK";
 
 _sentPos 	= _this select 0; // objective point for any new mission 
 _sentOrigin = _this select 1; // starting point for any new mission

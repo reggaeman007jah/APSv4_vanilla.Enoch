@@ -109,4 +109,38 @@ while {true} do {
 		[RGG_missionOrigin] execVM "autoPatrolSystem\spawnerSystems\createFriendlyUnits.sqf";
 		sleep 10;
 	};
+
+	// MP Stats Test using pubVars 
+	// publicVariable "RGG_totalOpforGroups";
+	/*
+	// Manages total count of groups created 
+		RGG_totalOpforGroups = [];
+		RGG_totalIndiforGroups = [];
+		publicVariable "RGG_totalOpforGroups";
+		publicVariable "RGG_totalIndiforGroups";
+	// base-counter var for tracking how many missions have been completed 
+		patrolPointsTaken = 0;
+		publicVariable "patrolPointsTaken";
+	// base-counter var for tracking how many times RF have been called in 
+		reinforcementsCalled = 0;
+		publicVariable "reinforcementsCalled";
+	// mission status 
+	// there are a few different stages of the mission, these states will track the current task 
+		MISSIONTASK = "Setting up initial patrol";
+		publicVariable "MISSIONTASK";
+	// track created units  
+		spawnedIndiUnit = 0;
+		spawnedOpforUnit = 0;
+		publicVariable "spawnedIndiUnit";
+		publicVariable "spawnedOpforUnit";
+
+		_time = selectRandom [45, 60, 120];
+		format ["All friendly units are KIA. Next available unit in: %1 seconds!", _time] remoteExec ["hint", 0];
+
+	*/
+
+
+	"MISSION STATUS" remoteExec ["systemChat", 0, true];	
+	format ["................. TASK: %1", MISSIONTASK] remoteExec ["systemChat", 0];
+
 };
