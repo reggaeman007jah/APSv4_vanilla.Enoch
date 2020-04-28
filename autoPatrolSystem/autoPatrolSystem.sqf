@@ -69,7 +69,7 @@ _base setMarkerAlpha 0.9;
 sleep 1;
 // the above sequence provides a very basic marker animation on startup 
 
-// this takes the permaBase location as the first anchor (subsequent progress anchors will be different)
+// this takes the permaBase location as the first anchor (subsequent progress-anchors will be different)
 // -------------------------------------------- to do / April 2020 / work out why you used the same arg twice here --------------------------------------------
 [RGG_initStartPos, RGG_initStartPos] execVM "autoPatrolSystem\phase1_createObj.sqf";
 // systemchat "debug --- phase1_createObj ACTIVATED";
@@ -86,3 +86,4 @@ sleep 0.2;
 _topleft = RGG_initStartPos getPos [800,315];
 _bottomRight = RGG_initStartPos getPos [800,135];
 RGG_patrolPositionBlacklist pushBack [_topLeft, _bottomRight];
+// consider making this smaller 
