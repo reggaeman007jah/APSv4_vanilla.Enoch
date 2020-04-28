@@ -19,7 +19,7 @@ sleep 10; // let's other systems boot up on mission start if needed
 _spawnPos = _this select 0; // position parsed to this script on execution
 // _numberOfCycles = _this select 1; // number of times we run this // 4 = 4 fire teams  
 _numberOfCycles = 4; // temp test  
-_area = 50; // distribution of units on spawn  // I am making this much smaller 
+_area = 60; // distribution of units on spawn  // I am making this much smaller 
 _timer = 0.3; // spawn cycle gap  
 
 
@@ -36,7 +36,7 @@ Each spawned team has:
 
 for "_i" from 1 to _numberOfCycles do {
 	_indiGroup = createGroup independent;
-	_pos = [_spawnPos, 0, _area] call BIS_fnc_findSafePos;
+	_pos = [_spawnPos, 20, _area] call BIS_fnc_findSafePos;
 	// _pos1 = _pos getPos [1,180];
 	// _pos2 = _pos getPos [2,180];
 	// _pos3 = _pos getPos [3,180];
