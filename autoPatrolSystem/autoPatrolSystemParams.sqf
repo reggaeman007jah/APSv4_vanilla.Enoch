@@ -23,8 +23,11 @@ RGG_patrolPositionBlacklist = ["blacklist4","blacklist3","blacklist2","blacklist
 // [[500,3300],[12500,3000]],[[500,500],[12500,450]],[[500,12500],[12500,12450]],[[500,12500],[500,550]],[[12500,12500],[12550,500]],
 // [[500,3300],[12500,3000]] // test lower third 
 
+// Manages total count of groups created 
 RGG_totalOpforGroups = [];
 RGG_totalIndiforGroups = [];
+publicVariable "RGG_totalOpforGroups";
+publicVariable "RGG_totalIndiforGroups";
 
 // opfor RF gen system
 ONEPOINT = false;
@@ -36,9 +39,13 @@ monitorDefence = false;
 
 // base-counter var for tracking how many missions have been completed 
 patrolPointsTaken = 0;
+publicVariable "patrolPointsTaken";
+
 
 // base-counter var for tracking how many times RF have been called in 
 reinforcementsCalled = 0;
+publicVariable "reinforcementsCalled";
+
 
 // base-counter var for tracking how many patrols have been totally wiped out while in-field 
 lostPatrols = 0;
@@ -54,8 +61,12 @@ fieldBases = [];
 // mission status 
 // there are a few different stages of the mission, these states will track the current task 
 MISSIONTASK = "Setting up initial patrol";
+publicVariable "MISSIONTASK";
+
 
 // track created units  
 spawnedIndiUnit = 0;
 spawnedOpforUnit = 0;
+publicVariable "spawnedIndiUnit";
+publicVariable "spawnedOpforUnit";
 
