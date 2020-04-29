@@ -102,6 +102,8 @@ while {true} do {
 		sleep 2;
 		hint "INDI REINFORCEMENTS ARE INBOUND";
 		"INDI REINFORCEMENTS ARE INBOUND" remoteExec ["hint", 0, true];	
+		_smoke = createVehicle ["G_40mm_smokeYELLOW", RGG_missionOrigin, [], 0, "none"]; // drop this from up high 
+
 
 		// systemchat "debug --- friendly units created";
 		// "MP debug --- friendly units created" remoteExec ["systemChat", 0, true];
