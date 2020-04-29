@@ -25,6 +25,13 @@ execVM "autoPatrolSystem\debuggingSystems\debugCounter.sqf";
 // initialise flybys - add bombs later 
 execVM "autoPatrolSystem\ambientSystems\randomFlybys.sqf";
 
+// test addAction 
+// heliAttack4
+if (isServer) then
+{
+	_object = heliAttack4;
+	[_object, ["Greetings!", {hint "Hello!"}]] remoteExec ["addAction"];
+};
 
 // sleep 60;
 
