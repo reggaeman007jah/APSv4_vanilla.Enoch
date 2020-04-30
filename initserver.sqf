@@ -25,17 +25,28 @@ execVM "autoPatrolSystem\debuggingSystems\debugCounter.sqf";
 // initialise flybys - add bombs later 
 execVM "autoPatrolSystem\ambientSystems\randomFlybys.sqf";
 
+
+
 // test addAction 
-// heliAttack4
-if (isServer) then
-{
-	_object = heliAttack4;
-	[_object, ["Greetings!", {hint "Hello!"}]] remoteExec ["addAction"];
-};
+// // heliAttack4
+// // if (isServer) then
+// {
+// 	_object = heliAttack4;
+// 	[_object, ["Greetings!", {hint "Hello!"}]] remoteExec ["addAction"];
+// };
 
 // sleep 60;
 
+/*
+this addEventHandler ["GetIn", { 
+ params ["_vehicle", "_role", "_unit", "_turret"]; { 
+ _object = _unit; 
+ [_object, ["Greetings!", {hint "Hello!"}]] remoteExec ["addAction"]; systemChat str _unit; 
+};
+}];
 
+
+*/
 // SF Manager
 //player addAction ["Pick up SF", "autoPatrolSystem\callSF.sqf"];	
 // player setVariable ["isBusy", 111]; // i.e. not busy and needs a task
